@@ -17,10 +17,10 @@ const AllShowDisplay = () => {
 
     const handleBookMarked = (singleBlog)=>{
         const newSites = [...sites, singleBlog];
+        setSites(newSites);
         const isBookmarked = sites.find(site=> site.id === singleBlog.id);
 
         if(isBookmarked){
-            setSites(newSites);
             toast.warn('Oops!! Bookmarked Already Added.', {
                 position: "top-center",
                 autoClose: 1000,
@@ -33,7 +33,6 @@ const AllShowDisplay = () => {
                 });
         }
         else{
-            setSites(newSites);
             toast.success('Bookmark Added Successfully!!', {
                 position: "top-center",
                 autoClose: 1000,
@@ -53,8 +52,8 @@ const AllShowDisplay = () => {
     };
     return (
         <div>
-            <div className='flex lg:px-12'>
-                <div className='w-3/4'>
+            <div className='flex flex-col lg:flex-row mb-10 lg:px-12'>
+                <div className='sm:w-full lg:w-3/4'>
                    {
                      blogs.map(blog=><DisplayCards
                          key={blog.id}
@@ -64,7 +63,7 @@ const AllShowDisplay = () => {
                      ></DisplayCards>)
                     }
                 </div>
-                <div className='w-1/4 mt-12 bg-slate-200 rounded-lg'>
+                <div className='sm:w-full lg:w-1/4 mt-12 bg-slate-200 rounded-lg'>
                     <BlogInformations
                        sites={sites}
                        readTimes={readTimes}
