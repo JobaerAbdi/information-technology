@@ -20,16 +20,16 @@ const AllShowDisplay = () => {
     const handleBookMarked = (singleBlog)=>{
         const newSites = [...sites, singleBlog];
         setSites(newSites);
-        toast.info('🦄 All Ready Bookmarked!!!', {
-            position: "top-center",
-            autoClose: 500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
+            toast.info('🦄 All Ready Bookmarked!!!', {
+                position: "top-center",
+                autoClose: 500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
     }
 
     const handleReadTime = (singleBlog)=>{
