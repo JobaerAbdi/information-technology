@@ -6,6 +6,7 @@ import BlogInformations from '../BlogInformations/BlogInformations';
 const AllShowDisplay = () => {
     const [blogs,setBlogs] = useState([]);
     const [sites,setSites] = useState([]);
+    const [readTimes,setReadTimes] = useState([]);
     // console.log(blogs);
     // console.log(sites);
 
@@ -19,6 +20,11 @@ const AllShowDisplay = () => {
         const newSites = [...sites, singleBlog];
         setSites(newSites);
     }
+
+    const handleReadTime = (singleBlog)=>{
+        const newReadTimes = [...readTimes, singleBlog];
+        setReadTimes(newReadTimes);
+    }
     return (
         <div>
             <div className='flex lg:px-12'>
@@ -28,12 +34,14 @@ const AllShowDisplay = () => {
                          key={blog.id}
                          blog={blog}
                          handleBookMarked={handleBookMarked}
+                         handleReadTime={handleReadTime}
                      ></DisplayCards>)
                     }
                 </div>
                 <div className='w-1/4 mt-12 bg-slate-200 rounded-lg'>
                     <BlogInformations
                        sites={sites}
+                       readTimes={readTimes}
                     ></BlogInformations>
                 </div>
             </div>

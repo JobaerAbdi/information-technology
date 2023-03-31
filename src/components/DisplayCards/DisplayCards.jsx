@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 
-const DisplayCards = ({blog,handleBookMarked}) => {
+const DisplayCards = ({blog,handleBookMarked,handleReadTime}) => {
     // console.log(blog);
     const {id,authorName,blogTitle,coverImage,authorImage,readTime,publishDate} = blog;
     return (
@@ -24,7 +24,7 @@ const DisplayCards = ({blog,handleBookMarked}) => {
                         </div>
                     </div>
                     <div className='flex'>
-                        <h2>0{readTime} Minute Red</h2>
+                        <h2 className='font-semibold'>0{readTime} Minute Red</h2>
                         <button onClick={()=>handleBookMarked(blog)} className='ml-4' href="/">
                           <FontAwesomeIcon icon={faBookmark} />
                         </button>
@@ -32,6 +32,9 @@ const DisplayCards = ({blog,handleBookMarked}) => {
                 </div>
                 <div className="mt-4">
                     <h1 className='font-bold text-2xl'>{blogTitle}</h1>
+                </div>
+                <div>
+                 <button className='font-semibold' onClick={()=>handleReadTime(blog)}>Mark as read</button>
                 </div>
             </div>
             </div>
