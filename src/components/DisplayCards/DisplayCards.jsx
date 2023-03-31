@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 const DisplayCards = ({blog}) => {
     console.log(blog);
@@ -25,6 +27,9 @@ const DisplayCards = ({blog}) => {
                 </div>
                 <div className="mt-4">
                     <h1 className='font-bold text-2xl'>{blogTitle}</h1>
+                    <a href="/">
+                      <FontAwesomeIcon icon={faCoffee} />
+                    </a>
                 </div>
             </div>
             </div>
