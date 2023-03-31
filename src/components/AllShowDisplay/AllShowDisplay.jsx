@@ -8,8 +8,6 @@ const AllShowDisplay = () => {
     const [blogs,setBlogs] = useState([]);
     const [sites,setSites] = useState([]);
     const [readTimes,setReadTimes] = useState([]);
-    // console.log(blogs);
-    // console.log(sites);
 
     useEffect(()=>{
         fetch('data.json')
@@ -19,10 +17,26 @@ const AllShowDisplay = () => {
 
     const handleBookMarked = (singleBlog)=>{
         const newSites = [...sites, singleBlog];
-        setSites(newSites);
-            toast.info('🦄 All Ready Bookmarked!!!', {
+        const isBookmarked = sites.find(site=> site.id === singleBlog.id);
+
+        if(isBookmarked){
+            setSites(newSites);
+            toast.warn('Oops!! Bookmarked Already Added.', {
                 position: "top-center",
-                autoClose: 500,
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+        }
+        else{
+            setSites(newSites);
+            toast.success('Bookmark Added Successfully!!', {
+                position: "top-center",
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -30,12 +44,13 @@ const AllShowDisplay = () => {
                 progress: undefined,
                 theme: "colored",
             });
-    }
+        }
+    };
 
     const handleReadTime = (singleBlog)=>{
         const newReadTimes = [...readTimes, singleBlog];
         setReadTimes(newReadTimes);
-    }
+    };
     return (
         <div>
             <div className='flex lg:px-12'>
